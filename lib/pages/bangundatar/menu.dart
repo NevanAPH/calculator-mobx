@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'content/persegi.dart';
 import 'content/segitiga.dart';
 import 'content/lingkaran.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 
-class Menu extends StatefulWidget {
-  const Menu({super.key});
+class BangunDatarPage extends StatefulWidget {
+  const BangunDatarPage({super.key});
 
   @override
-  State<Menu> createState() => _MenuState();
+  State<BangunDatarPage> createState() => _BangunDatarPageState();
 }
 
-class _MenuState extends State<Menu> {
+class _BangunDatarPageState extends State<BangunDatarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +43,7 @@ class _MenuState extends State<Menu> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SegitigaPage()),
+                MaterialPageRoute(builder: (context) => SegitigaPage()),
               );
             },
           ),

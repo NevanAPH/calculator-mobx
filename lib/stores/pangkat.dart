@@ -1,10 +1,10 @@
 import 'package:mobx/mobx.dart';
 
-part 'counter.g.dart';
+part 'pangkat.g.dart';
 
-class Counter = _Counter with _$Counter;
+class Pangkat = PangkatStore with _$PangkatStore;
 
-abstract class _Counter with Store {
+abstract class PangkatStore with Store {
   @observable
   int result = 1;
 
