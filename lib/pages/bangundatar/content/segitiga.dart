@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/widgets/button.dart';
+import 'package:state_management/widgets/textField.dart';
 import '../../../stores/bangundatar.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -21,40 +23,19 @@ class SegitigaPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _sisi1Controller,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Sisi Pertama',
-              ),
-            ),
+            MyTextField(textController: _sisi1Controller, label: "Sisi Pertama"),
             const SizedBox(height: 20),
-            TextField(
-              controller: _sisi2Controller,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Sisi kedua',
-              ),
-            ),
+            MyTextField(textController: _sisi2Controller, label: "Sisi Kedua"),
             const SizedBox(height: 20),
-            TextField(
-              controller: _sisi3Controller,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Sisi ketiga',
-              ),
-            ),
+            MyTextField(textController: _sisi3Controller, label: "Sisi Ketiga"),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final double sisi1 = double.parse(_sisi1Controller.text);
-                final double sisi2 = double.parse(_sisi2Controller.text);
-                final double sisi3 = double.parse(_sisi3Controller.text);
+            PrimaryButton(onPressed: () {
+              final double sisi1 = double.parse(_sisi1Controller.text);
+              final double sisi2 = double.parse(_sisi2Controller.text);
+              final double sisi3 = double.parse(_sisi3Controller.text);
 
-                state.segitiga(sisi1, sisi2, sisi3);
-              },
-              child: const Text('Hitung Keliling'),
-            ),
+              state.segitiga(sisi1, sisi2, sisi3);
+            }, child: const Text('Hitung Keliling')),
             const SizedBox(height: 20),
             Observer(
               builder: (_) => Text(

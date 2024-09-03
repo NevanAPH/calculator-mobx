@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/widgets/button.dart';
+import 'package:state_management/widgets/textField.dart';
 import '../../../stores/bangundatar.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -24,22 +26,13 @@ class _PersegiPageState extends State<PersegiPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _sisiController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Panjang Sisi',
-              ),
-            ),
+            MyTextField(textController: _sisiController, label: "Panjang Sisi"),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final double sisi = double.parse(_sisiController.text);
+            PrimaryButton(onPressed: (){
+              final double sisi = double.parse(_sisiController.text);
 
-                state.persegi(sisi);
-              },
-              child: const Text('Hitung Keliling'),
-            ),
+              state.persegi(sisi);
+            }, child: const Text('Hitung Keliling')),
             const SizedBox(height: 20),
             Observer(
               builder: (_) => Text(

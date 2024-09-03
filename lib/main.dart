@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const Scaffold(),
+      home: PerpangkatanPage(),
       routes: {
         '/aritmatika': (context) => AritmatikaPage(),
         '/bangun-datar': (context) => const BangunDatarPage(),

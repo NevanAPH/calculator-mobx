@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:state_management/stores/bangunruang.dart';
 
 import 'package:state_management/widgets/button.dart';
+import 'package:state_management/widgets/textField.dart';
 
 class BangunRuangPrisma extends StatelessWidget {
   final TextEditingController sisiController = TextEditingController();
@@ -25,27 +26,9 @@ class BangunRuangPrisma extends StatelessWidget {
         body: Container(
             padding: const EdgeInsets.all(16),
             child: Column(children: [
-              TextField(
-                controller: sisiController,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]'))
-                ],
-                decoration: const InputDecoration(labelText: 'Sisi'),
-              ),
-              TextField(
-                controller: alasController,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]'))
-                ],
-                decoration: const InputDecoration(labelText: 'Alas'),
-              ),
-              TextField(
-                controller: tinggiController,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]'))
-                ],
-                decoration: const InputDecoration(labelText: 'Tinggi'),
-              ),
+              MyTextField(textController: sisiController, label: "Sisi"),
+              MyTextField(textController: alasController, label: "Alas"),
+              MyTextField(textController: tinggiController, label: "Tinggi"),
               const SizedBox(height: 16),
               PrimaryButton(
                 onPressed: () {

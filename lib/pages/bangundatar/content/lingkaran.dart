@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_management/widgets/button.dart';
+import 'package:state_management/widgets/textField.dart';
 
 class LingkaranPage extends StatefulWidget {
   const LingkaranPage({super.key});
@@ -30,18 +32,9 @@ class _LingkaranPageState extends State<LingkaranPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _radiusController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Jari-jari',
-              ),
-            ),
+            MyTextField(textController: _radiusController, label: "Jari-jari"),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _calculateArea,
-              child: const Text('Hitung Keliling'),
-            ),
+            PrimaryButton(onPressed: _calculateArea, child: const Text('Hitung Keliling')),
             const SizedBox(height: 20),
             if (_keliling != null)
               Text('Luas Lingkaran: $_keliling',
