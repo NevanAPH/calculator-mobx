@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Aritmatika
+import 'package:state_management/aritmatika/ui.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -32,6 +35,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/aritmatika': (context) => AritmatikaUI()
+      }
     );
   }
 }
