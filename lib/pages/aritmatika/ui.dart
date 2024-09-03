@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:state_management/aritmatika/main.dart';
+import 'package:state_management/stores/aritmatika.dart';
 
-class AritmatikaUI extends StatelessWidget {
+class AritmatikaPage extends StatelessWidget {
   final TextEditingController angka1Controller = TextEditingController();
   final TextEditingController angka2Controller = TextEditingController();
 
   // Menggunakan instance dari AritmatikaStore
-  final aritmatika aritmatikaStore = aritmatika();
+  final Aritmatika aritmatikaStore = Aritmatika();
+
+  AritmatikaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aritmatika dengan MobX'),
+        title: const Text('Aritmatika dengan MobX'),
       ),
       body: Center(
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: TextField(
                 controller: angka1Controller,
                 keyboardType: TextInputType.number,
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
                 ],
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Angka 1',
                   fillColor: Color(0xFFE4E5E9),
@@ -36,14 +38,14 @@ class AritmatikaUI extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: angka2Controller,
                 keyboardType: TextInputType.number,
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
                 ],
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Angka 2',
                   fillColor: Color(0xFFE4E5E9),
@@ -51,7 +53,7 @@ class AritmatikaUI extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -62,9 +64,9 @@ class AritmatikaUI extends StatelessWidget {
 
                     aritmatikaStore.penjumlahan(value1, value2);
                   },
-                  child: Text("+"),
+                  child: const Text("+"),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     final double value1 = double.parse(angka1Controller.text);
@@ -72,9 +74,9 @@ class AritmatikaUI extends StatelessWidget {
 
                     aritmatikaStore.pengurangan(value1, value2);
                   },
-                  child: Text("-"),
+                  child: const Text("-"),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     final double value1 = double.parse(angka1Controller.text);
@@ -82,9 +84,9 @@ class AritmatikaUI extends StatelessWidget {
 
                     aritmatikaStore.perkalian(value1, value2);
                   },
-                  child: Text("*"),
+                  child: const Text("*"),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     final double value1 = double.parse(angka1Controller.text);
@@ -92,9 +94,9 @@ class AritmatikaUI extends StatelessWidget {
 
                     aritmatikaStore.pembagian(value1, value2);
                   },
-                  child: Text("/"),
+                  child: const Text("/"),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
                     final double value1 = double.parse(angka1Controller.text);
@@ -102,16 +104,16 @@ class AritmatikaUI extends StatelessWidget {
 
                     aritmatikaStore.modulus(value1, value2);
                   },
-                  child: Text('%'),
+                  child: const Text('%'),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Observer(
               builder: (_) =>
                   Text(
                     'Hasil: ${aritmatikaStore.hasil}',
-                    style: TextStyle(fontSize: 24),
+                    style: const TextStyle(fontSize: 24),
                   ),
             ),
           ],

@@ -1,11 +1,11 @@
 import 'package:mobx/mobx.dart';
 
-part 'main.g.dart';
+part 'aritmatika.g.dart';
 
 
-class aritmatika = Aritmatika_store with _$AritmatikaStore;
+class Aritmatika = AritmatikaStore with _$AritmatikaStore;
 
-abstract class Aritmatika_store with Store {
+abstract class AritmatikaStore with Store {
   @observable
   double hasil = 0;
 

@@ -1,10 +1,10 @@
 import 'package:mobx/mobx.dart';
 
-part 'counter.g.dart';
+part 'bangundatar.g.dart';
 
-class counter = Counter with _$counter;
+class BangunDatar = BangunDatarStore with _$BangunDatarStore;
 
-abstract class Counter with Store {
+abstract class BangunDatarStore with Store {
   @observable
   double hasil = 0;
 
@@ -18,6 +18,7 @@ abstract class Counter with Store {
     hasil = 4 * sisi;
   }
 
+  @action
   void segitiga(double sisi1, double sisi2, double sisi3) {
     hasil = sisi1 + sisi2 + sisi3;
   }

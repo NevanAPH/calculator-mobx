@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'counter.dart';
+import '../../stores/pangkat.dart';
 
 class PerpangkatanPage extends StatelessWidget {
   const PerpangkatanPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Counter counter = Counter();
+    final Pangkat counter = Pangkat();
     final TextEditingController base = TextEditingController();
     final TextEditingController power = TextEditingController();
 

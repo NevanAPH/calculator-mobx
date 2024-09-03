@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import '../stores/counter.dart';
+import '../../../stores/bangundatar.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class SegitigaPage extends StatefulWidget {
-  const SegitigaPage({super.key});
-
-  @override
-  State<SegitigaPage> createState() => _SegitigaPageState();
-}
-
-class _SegitigaPageState extends State<SegitigaPage> {
+class SegitigaPage extends StatelessWidget {
   final TextEditingController _sisi1Controller = TextEditingController();
   final TextEditingController _sisi2Controller = TextEditingController();
   final TextEditingController _sisi3Controller = TextEditingController();
 
-  final counter Segitiga = counter();
+  final BangunDatar state = BangunDatar();
+
+  SegitigaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,15 +51,15 @@ class _SegitigaPageState extends State<SegitigaPage> {
                 final double sisi2 = double.parse(_sisi2Controller.text);
                 final double sisi3 = double.parse(_sisi3Controller.text);
 
-                Segitiga.segitiga(sisi1, sisi2, sisi3);
+                state.segitiga(sisi1, sisi2, sisi3);
               },
               child: const Text('Hitung Keliling'),
             ),
             const SizedBox(height: 20),
             Observer(
               builder: (_) => Text(
-                'Keliling Persegi: ${Segitiga.hasil}',
-                style: TextStyle(fontSize: 20),
+                'Keliling Persegi: ${state.hasil}',
+                style: const TextStyle(fontSize: 20),
               ),
             )
           ],
