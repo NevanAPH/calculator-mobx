@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:state_management/stores/aritmatika.dart';
+import 'package:state_management/widgets/button.dart';
+import 'package:state_management/widgets/textField.dart';
 
 class AritmatikaPage extends StatelessWidget {
   final TextEditingController angka1Controller = TextEditingController();
@@ -23,89 +25,51 @@ class AritmatikaPage extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: TextField(
-                controller: angka1Controller,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Angka 1',
-                  fillColor: Color(0xFFE4E5E9),
-                  filled: true,
-                ),
-              ),
+              child: MyTextField(textController: angka1Controller, label: "Number")
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
-                controller: angka2Controller,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Angka 2',
-                  fillColor: Color(0xFFE4E5E9),
-                  filled: true,
-                ),
-              ),
+              child: MyTextField(textController: angka2Controller, label: "Number")
             ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    final double value1 = double.parse(angka1Controller.text);
-                    final double value2 = double.parse(angka2Controller.text);
+                PrimaryButton(onPressed: () {
+                  final double value1 = double.tryParse(angka1Controller.text) ?? 0;
+                  final double value2 = double.tryParse(angka2Controller.text) ?? 0;
 
-                    aritmatikaStore.penjumlahan(value1, value2);
-                  },
-                  child: const Text("+"),
-                ),
+                  aritmatikaStore.penjumlahan(value1, value2);
+                }, child: const Text("+")),
                 const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    final double value1 = double.parse(angka1Controller.text);
-                    final double value2 = double.parse(angka2Controller.text);
+                PrimaryButton(onPressed: () {
+                  final double value1 = double.tryParse(angka1Controller.text) ?? 0;
+                  final double value2 = double.tryParse(angka2Controller.text) ?? 0;
 
-                    aritmatikaStore.pengurangan(value1, value2);
-                  },
-                  child: const Text("-"),
-                ),
+                  aritmatikaStore.pengurangan(value1, value2);
+                }, child: const Text("-")),
                 const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    final double value1 = double.parse(angka1Controller.text);
-                    final double value2 = double.parse(angka2Controller.text);
+                PrimaryButton(onPressed: () {
+                  final double value1 = double.tryParse(angka1Controller.text) ?? 0;
+                  final double value2 = double.tryParse(angka2Controller.text) ?? 0;
 
-                    aritmatikaStore.perkalian(value1, value2);
-                  },
-                  child: const Text("*"),
-                ),
+                  aritmatikaStore.perkalian(value1, value2);
+                }, child: const Text("X")),
                 const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    final double value1 = double.parse(angka1Controller.text);
-                    final double value2 = double.parse(angka2Controller.text);
+                PrimaryButton(onPressed: () {
+                  final double value1 = double.tryParse(angka1Controller.text) ?? 0;
+                  final double value2 = double.tryParse(angka2Controller.text) ?? 0;
 
-                    aritmatikaStore.pembagian(value1, value2);
-                  },
-                  child: const Text("/"),
-                ),
+                  aritmatikaStore.pembagian(value1, value2);
+                }, child: const Text("/")),
                 const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    final double value1 = double.parse(angka1Controller.text);
-                    final double value2 = double.parse(angka2Controller.text);
+                PrimaryButton(onPressed: () {
+                  final double value1 = double.tryParse(angka1Controller.text) ?? 0;
+                  final double value2 = double.tryParse(angka2Controller.text) ?? 0;
 
-                    aritmatikaStore.modulus(value1, value2);
-                  },
-                  child: const Text('%'),
-                ),
+                  aritmatikaStore.modulus(value1, value2);
+                }, child: const Text("%")),
+                const SizedBox(width: 10),
               ],
             ),
             const SizedBox(height: 20),
