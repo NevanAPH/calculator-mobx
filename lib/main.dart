@@ -54,6 +54,9 @@ class MyApp extends StatelessWidget {
         '/bangun-datar': (context) => const ListBangunDatarMenu(),
         '/bangun-ruang': (context) => const ListBangunRuangMenu(),
         '/pangkat': (context) => const PerpangkatanPage(),
+
+        '/bangun-ruang/persegi': (context) => BangunRuangPersegi(),
+        '/bangun-ruang/prisma': (context) => BangunRuangPrisma(),
       }
     );
   }
