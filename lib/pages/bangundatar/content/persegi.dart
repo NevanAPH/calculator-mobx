@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../stores/bangundatar.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class PersegiPage extends StatefulWidget {
-  const PersegiPage({super.key});
-
-  @override
-  State<PersegiPage> createState() => _PersegiPageState();
-}
-
-class _PersegiPageState extends State<PersegiPage> {
+class BangunDatarPersegi extends StatelessWidget {
   final TextEditingController _sisiController = TextEditingController();
 
   final BangunDatar state = BangunDatar();
+
+  BangunDatarPersegi({super.key});
 
   @override
   Widget build(BuildContext context) {

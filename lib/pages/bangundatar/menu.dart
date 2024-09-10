@@ -4,14 +4,14 @@ import 'content/segitiga.dart';
 import 'content/lingkaran.dart';
 
 
-class BangunDatarPage extends StatefulWidget {
-  const BangunDatarPage({super.key});
+class ListBangunDatarMenu extends StatefulWidget {
+  const ListBangunDatarMenu({super.key});
 
   @override
-  State<BangunDatarPage> createState() => _BangunDatarPageState();
+  State<ListBangunDatarMenu> createState() => _ListBangunDatarMenuState();
 }
 
-class _BangunDatarPageState extends State<BangunDatarPage> {
+class _ListBangunDatarMenuState extends State<ListBangunDatarMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _BangunDatarPageState extends State<BangunDatarPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const PersegiPage()),
+                MaterialPageRoute(builder: (context) => BangunDatarPersegi()),
               );
             },
           ),
@@ -34,7 +34,7 @@ class _BangunDatarPageState extends State<BangunDatarPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const LingkaranPage()),
+                MaterialPageRoute(builder: (context) => BangunDatarLingkaran()),
               );
             },
           ),
@@ -43,7 +43,7 @@ class _BangunDatarPageState extends State<BangunDatarPage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SegitigaPage()),
+                MaterialPageRoute(builder: (context) => BangunDatarSegitiga()),
               );
             },
           ),
