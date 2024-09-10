@@ -4,14 +4,14 @@ import 'package:state_management/widgets/textField.dart';
 import '../../../stores/bangundatar.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class SegitigaPage extends StatelessWidget {
+class BangunDatarSegitiga extends StatelessWidget {
   final TextEditingController _sisi1Controller = TextEditingController();
   final TextEditingController _sisi2Controller = TextEditingController();
   final TextEditingController _sisi3Controller = TextEditingController();
 
   final BangunDatar state = BangunDatar();
 
-  SegitigaPage({super.key});
+  BangunDatarSegitiga({super.key});
 
   @override
   Widget build(BuildContext context) {

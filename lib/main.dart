@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
+// Menu utama
+import 'package:state_management/pages/menu.dart';
+
 // Aritmatika
 import 'package:state_management/pages/aritmatika/ui.dart';
 
 // Bangun Datar
 import 'package:state_management/pages/bangundatar/menu.dart';
+
+// Bangun Ruang
+import 'package:state_management/pages/bangunruang/menu.dart';
+import 'package:state_management/pages/bangunruang/content/persegi.dart';
+import 'package:state_management/pages/bangunruang/content/prisma.dart';
 
 // Perpangkatan
 import 'package:state_management/pages/perpangkatan/ui.dart';
@@ -40,10 +48,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: PerpangkatanPage(),
+      home: const ListMenu(),
       routes: {
         '/aritmatika': (context) => AritmatikaPage(),
-        '/bangun-datar': (context) => const BangunDatarPage(),
+        '/bangun-datar': (context) => const ListBangunDatarMenu(),
+        '/bangun-ruang': (context) => const ListBangunRuangMenu(),
         '/pangkat': (context) => const PerpangkatanPage(),
       }
     );
