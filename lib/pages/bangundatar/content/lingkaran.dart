@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 
-class LingkaranPage extends StatefulWidget {
-  const LingkaranPage({super.key});
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:state_management/stores/bangundatar.dart';
 
-  @override
-  State<LingkaranPage> createState() => _LingkaranPageState();
-}
-
-class _LingkaranPageState extends State<LingkaranPage> {
+class BangunDatarLingkaran extends StatelessWidget {
   final TextEditingController _radiusController = TextEditingController();
   double? _keliling;
 
+  final BangunDatar state = BangunDatar();
+
+  BangunDatarLingkaran({super.key});
+
   void _calculateArea() {
     final radius = double.tryParse(_radiusController.text);
-    if (radius != null) {
-      setState(() {
-        _keliling = 2 * 3.14 * radius;
-      });
-    }
+    if (radius != null) state.lingkaran(radius);
   }
 
   @override
@@ -43,9 +39,15 @@ class _LingkaranPageState extends State<LingkaranPage> {
               child: const Text('Hitung Keliling'),
             ),
             const SizedBox(height: 20),
-            if (_keliling != null)
-              Text('Luas Lingkaran: $_keliling',
-                  style: const TextStyle(fontSize: 18)),
+            Observer(builder: (_) {
+              if (state.hasil != null) {
+                return Text(
+                  'Keliling Lingkaran: ${state.hasil}',
+                  style: const TextStyle(fontSize: 20),
+                );
+              }
+              return const SizedBox();
+            }),
           ],
         ),
       ),

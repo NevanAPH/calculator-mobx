@@ -3,12 +3,14 @@ import 'package:state_management/adapters/list_menu.dart';
 import 'package:state_management/models/list_menu.dart';
 
 List<ModelListMenu> listMenu = [
-  ModelListMenu(title: 'Persegi', route: '/bangun-ruang/persegi'),
-  ModelListMenu(title: 'Prisma', route: '/bangun-ruang/prisma'),
+  ModelListMenu(title: 'Aritmatika', route: '/aritmatika'),
+  ModelListMenu(title: 'Bangun Datar', route: '/bangun-datar'),
+  ModelListMenu(title: 'Bangun Ruang', route: '/bangun-ruang'),
+  ModelListMenu(title: 'Perpangkatan', route: '/pangkat'),
 ];
 
-class ListBangunRuangMenu extends StatelessWidget {
-  const ListBangunRuangMenu({super.key});
+class ListMenu extends StatelessWidget {
+  const ListMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
